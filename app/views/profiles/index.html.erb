@@ -1,0 +1,173 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/scoreboards/index">PraiseBooky</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="/publics/index">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="/scoreboards/index">
+                  <span data-feather="home"></span>
+                  Scoreboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/voters/index">
+                  <span data-feather="file"></span>
+                  Voting Page 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/recent_activities/index">
+                  <span data-feather="users"></span>
+                  Recent Activity <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/profiles/index">
+                  <span data-feather="bar-chart-2"></span>
+                  My Profile
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+   <div class="container"><br>
+<div class="jumbotron p-3 text-center">
+  <h1 class="display-4">Profile bootstrap 4 + Material Design</h1><hr>
+  <p class="lead">Diseño tomado de "<a href="https://bootsnipp.com/snippets/qrg6B" target="_blank">Card-bootstrap-4</a>" que había adaptado anteriormente!</p>
+  
+</div>
+
+    
+
+<div class="row">
+
+  <div class="col-sm-6">
+    <div class="card">
+      <h4 class="card-header text-center bg-dark text-white">HISTORY
+      </h4>
+      <div class="card-body">
+           <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+      </div>
+    </div>
+  </div>            
+  <div class="col-sm-6">
+    <div class="card">
+      <h4 class="card-header text-center bg-dark text-white">RECENT COMMENTS
+      </h4>
+      <div class="card-body">
+        <div class="tab-content">
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="row">
+                  <div>
+                    <div class="mic-info">
+                     <h4 class="media-heading text-uppercase reviews">DREI</h4>
+                       <h6 class=media-heading text-uppercase reviews"><mark>07/02/18</mark></h6> 
+                        <p class="media-comment">
+                          Great work on the project!
+                        </p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div>
+                    <div class="mic-info">
+                      <h4 class="media-heading text-uppercase reviews">ZARAH</h4>
+                       <h6 class=media-heading text-uppercase reviews"><mark>07/01/18</mark></h6> 
+                        <p class="media-comment">
+                          Bad comment
+                        </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+           </div>
+         </div>
+          <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a>
+        </div>
+      </div>
+    </div>
+  <hr>    
+</div>
+
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.5/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.0.0-beta.3/dist/js/bootstrap-material-design.js"></script>
+
+   <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["07/01/18", "07/02/18", "07/03/18", "07/04/18", "07/05/18"],
+          datasets: [{
+            data: [25,26,24,25,23],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
