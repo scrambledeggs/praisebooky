@@ -1,3 +1,3 @@
 class Vote < ApplicationRecord
-	validates :point, presence: true, numericality: { other_than: 0 }
+	validates :point, presence: true, numericality: { only_integer: true, other_than: 0 }
 end
