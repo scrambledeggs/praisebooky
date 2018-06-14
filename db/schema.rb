@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2018_06_11_093503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+  
+  create_table "votes", force: :cascade do |t|
+    t.integer "point"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
