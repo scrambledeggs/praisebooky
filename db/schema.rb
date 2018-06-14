@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_14_061202) do
+ActiveRecord::Schema.define(version: 2018_06_14_072315) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 2018_06_14_061202) do
     t.integer "users_id"
     t.integer "messages_id"
     t.integer "monthly_rewards_id"
+    t.integer "votes_id"
     t.index ["messages_id"], name: "index_departments_on_messages_id"
     t.index ["monthly_rewards_id"], name: "index_departments_on_monthly_rewards_id"
     t.index ["users_id"], name: "index_departments_on_users_id"
+    t.index ["votes_id"], name: "index_departments_on_votes_id"
   end
 
   create_table "messages", force: :cascade do |t|
