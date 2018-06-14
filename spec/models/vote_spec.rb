@@ -20,7 +20,5 @@ RSpec.describe Vote, type: :model do
     monthly_reward = MonthlyReward.create(point: 1, description: "something")
     expect(monthly_reward).to be_valid
   end
-  
-  
 
 end

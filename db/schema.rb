@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_11_093503) do
+ActiveRecord::Schema.define(version: 2018_06_14_080143) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "users_id"
+    t.integer "messages_id"
+    t.integer "monthly_rewards_id"
+    t.integer "votes_id"
+    t.index ["messages_id"], name: "index_departments_on_messages_id"
+    t.index ["monthly_rewards_id"], name: "index_departments_on_monthly_rewards_id"
+    t.index ["users_id"], name: "index_departments_on_users_id"
+    t.index ["votes_id"], name: "index_departments_on_votes_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -30,18 +38,24 @@ ActiveRecord::Schema.define(version: 2018_06_11_093503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
-  create_table "votes", force: :cascade do |t|
-    t.integer "point"
-    t.string "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "first_name"
     t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "votes_id"
+    t.integer "monthly_rewards_id"
+    t.integer "messages_id"
+    t.index ["messages_id"], name: "index_users_on_messages_id"
+    t.index ["monthly_rewards_id"], name: "index_users_on_monthly_rewards_id"
+    t.index ["votes_id"], name: "index_users_on_votes_id"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "point"
+    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
