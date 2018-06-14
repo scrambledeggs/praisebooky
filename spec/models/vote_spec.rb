@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Vote, type: :model do
 
   it { should validate_presence_of(:point) }
+
+  it { should validate_numericality_of(:point).only_integer }
   
   it "should have an integer point where 0 is invalid" do
     monthly_reward = MonthlyReward.create(point: 0, description: "something")
@@ -19,6 +21,6 @@ RSpec.describe Vote, type: :model do
     expect(monthly_reward).to be_valid
   end
   
-  it { should validate_numericality_of(:point).only_integer }
   
+
 end
