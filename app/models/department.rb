@@ -6,4 +6,10 @@ class Department < ApplicationRecord
 
   has_many :messages
   validates_associated :messages
+
+  has_many :monthly_rewards
+  validates_associated :monthly_rewards
+
+  has_many :votes
+  validates_associated :votes
 end
