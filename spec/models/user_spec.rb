@@ -8,4 +8,5 @@ RSpec.describe User, type: :model do
 
   it { should belong_to(:department) }
   it { should have_many(:votes) }
+  it { should have_many(:messages) }
 end

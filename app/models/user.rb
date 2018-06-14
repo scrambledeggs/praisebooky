@@ -5,4 +5,7 @@ class User < ApplicationRecord
 
   has_many :votes
   validates_associated :votes
+
+  has_many :messages
+  validates_associated :messages
 end
