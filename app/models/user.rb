@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
   has_many :messages
   validates_associated :messages
+
+  has_one :monthly_reward
+  validates_associated :monthly_reward
 end
