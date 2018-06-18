@@ -19,48 +19,27 @@
     <link href="dashboard.css" rel="stylesheet">
   </head>
 
-  <body>
-    <nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/scoreboards/index">PraiseBooky</a>
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="/publics/index">Sign out</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active" href="/scoreboards/index">
-                  <span data-feather="home"></span>
-                  Scoreboard
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/voters/index">
-                  <span data-feather="file"></span>
-                  Voting Page 
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/recent_activities/index">
-                  <span data-feather="users"></span>
-                  Recent Activity <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/profiles/index">
-                  <span data-feather="bar-chart-2"></span>
-                  My Profile
-                </a>
-              </li>
-            </ul>
+ 
+  <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-12 text-center">
+            <a class="blog-header-logo text-dark display-4">PRAISEBOOKY</a>
           </div>
+          <div class="col-0 d-flex justify-content-end align-items-center">
+            <a class="btn btn-sm btn-outline-secondary" href="#">Sign Out</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-center">
+          <a class="p-2 text-muted" href="/scoreboards/index"><span data-feather="home"></span> SCOREBOARD</a>
+          <a class="p-2 text-muted" href="/voters/index"><span data-feather="file"></span> VOTING PAGE</a>
+          <a class="p-2 text-muted" href="/recent_activities/index"><span data-feather="users"></span> RECENT ACTIVITY</a>
+          <a class="p-2 text-muted" href="/profiles/index"><span data-feather="bar-chart-2"></span> MY PROFILE</a>
         </nav>
+      </div>
 
    <div class="container"><br>
 <div class="jumbotron p-3 text-center">
