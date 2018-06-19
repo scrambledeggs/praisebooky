@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'recent_activities/index'
   get 'scoreboards/index'
   get 'publics/index'
-   root to: 'scoreboards#index' 
+    root to: 'scoreboards#index' 
 end
