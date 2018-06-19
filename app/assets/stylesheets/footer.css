@@ -1,13 +1,16 @@
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
+html 
+{
   position: relative;
   min-height: 100%;
 }
-body {
+body 
+{
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
-.footer {
+.footer 
+{
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -21,7 +24,8 @@ body {
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-.container {
+.container 
+{
   width: auto;
   max-width: 680px;
   padding: 0 15px;

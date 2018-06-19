@@ -1,34 +1,43 @@
 
-.table-inbox {
+.table-inbox 
+{
     border: 1px solid #d3d3d3;
     margin-bottom: 0;
 }
-.table-inbox tr td {
+.table-inbox tr td 
+{
     padding: 12px !important;
 }
-.table-inbox tr td:hover {
+.table-inbox tr td:hover 
+{
     cursor: pointer;
 }
-.table-inbox tr td .fa-star.inbox-started, .table-inbox tr td .fa-star:hover {
+.table-inbox tr td .fa-star.inbox-started, .table-inbox tr td .fa-star:hover 
+{
     color: #f78a09;
 }
-.table-inbox tr td .fa-star {
+.table-inbox tr td .fa-star 
+{
     color: #d5d5d5;
 }
-.table-inbox tr.unread td {
+.table-inbox tr.unread td 
+{
     background: none repeat scroll 0 0 #f7f7f7;
     font-weight: 600;
 }
 
-.modal-header h4.modal-title {
+.modal-header h4.modal-title 
+{
     font-family: "Open Sans",sans-serif;
     font-weight: 300;
 }
-.modal-body label {
+.modal-body label 
+{
     font-family: "Open Sans",sans-serif;
     font-weight: 400;
 }
-.heading-inbox h4 {
+.heading-inbox h4 
+{
     border-bottom: 1px solid #ddd;
     color: #444;
     font-size: 18px;

@@ -40,9 +40,6 @@ ActiveRecord::Schema.define(version: 2018_06_14_184834) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "first_name"
-    t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "department_id"
