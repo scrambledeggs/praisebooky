@@ -30,7 +30,7 @@
 
     <!-- Modal footer -->
     <div class="modal-footer">
-      <input type="text" class="form-control" id="vote" style="width:10%" placeholder=" ">
+      <input type="text" class="form-control" id="vote" style="width:10%" placeholder="1">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary">Submit</button>
     </div>
@@ -110,7 +110,7 @@
               <td colspan="8"><center>image</center></td>
               <td colspan="10"><center>Zarah</center></td>
               <td class="td-actions">
-                <%= link_to "Praise", new_vote_path, class: 'btn btn-success my-2 my-sm-0', data: { modal: true } %>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
               </td>
             </tr>

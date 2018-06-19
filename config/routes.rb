@@ -5,6 +5,4 @@ Rails.application.routes.draw do
   get 'scoreboards/index'
   get 'publics/index'
     root to: 'scoreboards#index' 
-
-    resources :votes
 end
