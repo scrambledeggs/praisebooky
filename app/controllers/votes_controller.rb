@@ -1,19 +1,18 @@
-class VotersController < ApplicationController
-
-  respond_to :html, :json
+class VotesController < ApplicationController
 
   def index
+    @votes = Vote.order(created_at: :desc)
   end
 
 
   def new
     @vote = Vote.new
-    respond_modal_with @vote
+  
   end
 
   def create
     @vote = Vote.create(vote_params)
-    respond_modal_with @vote, location: votes_path
+  
   end
 
   private
