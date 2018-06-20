@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Department.delete_all
+department = Department.create!(name: 'Tech')
+
+User.delete_all
+user = User.create!(email: 'clydeang421@gmail.com', first_name: 'Clyde', last_name: 'Ang', department: department)
+
+vote = Vote.create!(point: 1, comment: 'good comment', department: department, user: user, receiver_id: 2)
+
+puts "successfully made default user"
