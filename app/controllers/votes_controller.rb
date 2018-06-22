@@ -11,12 +11,16 @@ class VotesController < ApplicationController
   end
 
   def create
-    @vote = Vote.create!(vote_params)
+    current_user = User.find(10)
+    receiver_user = User.find(11)
+
+    @vote = Vote.new(vote_params)
+
     @vote.user = current_user
     @vote.department = current_user.department
 
       if @vote.save
-        redirect_to votes_index
+        redirect_to votes_path
       else
         render :new
       end
