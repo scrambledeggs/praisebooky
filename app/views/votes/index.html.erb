@@ -106,6 +106,17 @@
       <div class="table-responsive">
         <table class="table table-inbox table-hover table-striped">
           <tbody>
+            <% @users.each do |user| %>
+              <!--% if user.department_id ==  current_user.department_id %><-->
+              <tr class="">
+                <td colspan="8"><center>image</center></td>
+                <td colspan="10"><center>user.first_name</center></td>
+                <td class="td-actions">
+                  <a class="p-2 text-muted" href="/votes/new"><button type="button" class="btn btn-success">Vote</button></a>
+                </td>
+              </tr>
+              <!--% end %><-->
+            <% end %>
             <tr class="">
               <td colspan="8"><center>image</center></td>
               <td colspan="10"><center>Zarah</center></td>
