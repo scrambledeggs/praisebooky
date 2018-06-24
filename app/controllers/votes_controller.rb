@@ -2,8 +2,8 @@ class VotesController < ApplicationController
 
   def index
     @votes = Vote.order(created_at: :desc)
+    @users = User.order(created_at: :desc)
   end
-
 
   def new
     @vote = Vote.new
