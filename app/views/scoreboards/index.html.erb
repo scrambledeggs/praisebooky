@@ -47,17 +47,17 @@
     <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">SCOREBOARD</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-toolbar mb-2 mb-md-0"> 
           <div class="btn-group mr-2">
             <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#report">Report User</button>
           </div>
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Department<span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a href="#">Tech</a></li>
-              <li><a href="#">Business Dev</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Operations</a></li>
+              <li><a href="/scoreboards/tech">Tech</a></li>
+              <li><a href="/scoreboards/businessdev">Business Dev</a></li>
+              <li><a href="/scoreboards/marketing">Marketing</a></li>
+              <li><a href="/scoreboards/operations">Operations</a></li>
             </ul>
           </div>
         </div>
@@ -74,37 +74,16 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><center>Jett</center></td>
-                  <td><center>25</center></td>
-
+                 <% @users.each do |user| %>
+                 <tr>
+                  <td>
+                    <center><%= user.first_name %></center>
+                  </td>
+                  <td>
+                    <center><%= user.votes.sum(:point) %></center>
+                  </td>
                 </tr>
-                <tr>
-                  <td><center>Zarah</center></td>
-                  <td><center>25</center></td>
-
-                </tr>
-                <tr>
-                  <td><center>Chester</center></td>
-                  <td><center>25</center></td>
-
-                </tr>
-                <tr>
-                  <td><center>Alec</center></td>
-                  <td><center>25</center></td>
-                </tr>
-                <tr>
-                  <td><center>Drei</center></td>
-                  <td><center>25</center></td>
-                </tr>
-                <tr>
-                  <td><center>Angelo</center></td>
-                  <td><center>25</center></td>
-                </tr>
-                <tr>
-                  <td><center>Jay</center></td>
-                  <td><center>25</center></td>
-                </tr>
+                <% end %>
               </tbody>
             </table>
           </div>
