@@ -14,6 +14,8 @@ class VotesController < ApplicationController
 
     current_user = User.find(14)
     @remaining_votes_user = 25 - current_user.votes.count
+
+    @receiver = User.find(params[:receiver])
   end
 
   def create

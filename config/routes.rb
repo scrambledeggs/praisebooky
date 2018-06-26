@@ -9,14 +9,12 @@ Rails.application.routes.draw do
   get 'scoreboards/marketing'
   get 'scoreboards/operations'
   get 'publics/index'
-
   get '/votes/:receiver' => 'votes#new'
-
-    root to: 'scoreboards#index' 
+  root to: 'scoreboards#index' 
   
-    resources :votes 
+  resources :votes 
 
-    resources :users do
-    	resources :departments
-    end
+  resources :users do
+    resources :departments
+  end
 end
