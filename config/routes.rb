@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'votes/index'
+  get 'profiles/index'
+  get 'recent_activities/index'
+  get 'scoreboards/index'
+  get 'publics/index'
+    root to: 'scoreboards#index' 
+
+    resources :votes 
+
 end
