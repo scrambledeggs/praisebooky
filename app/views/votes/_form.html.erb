@@ -3,7 +3,7 @@
     <%= f.label :comment%><br />
     <%= f.text_field :comment, class: 'col-10' %><br />
 
-    <%= f.hidden_field :receiver_id, value: receiver %>
+    <%= f.hidden_field :receiver_id, value: receiver_id %>
   </p>
   <p>
     <%= f.radio_button :point, 1 %>
@@ -16,4 +16,3 @@
     <%= link_to "Cancel", votes_path, class: "btn btn-link col-2" %>
   </p>
 <% end %>
-

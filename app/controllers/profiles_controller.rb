@@ -1,23 +1,13 @@
 class ProfilesController < ApplicationController
-   before_action :set_vote, except: [ :index, :new, :create ]
-
+  before_action :set_vote, except: [ :index, :new, :create ]
 
   def index
     @votes = Vote.all.order(created_at: :desc)
     @users = User.all
-
     
-    current_user = User.find(14) 
-    @remain_user = 25 - current_user.votes.count 
-  end
-
-
-  def new
-  
-  end
-
-  def create
-  
+    current_user = User.find(10)
+    @remaining_votes_user = 25 - current_user.votes.count
+    @points = Vote.where(receiver_id: current_user.id).all.sum(:point) + 25
   end
 
 end
