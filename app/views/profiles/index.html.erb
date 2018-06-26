@@ -42,7 +42,7 @@
                           <% @votes.each do |vote| %>
 
                             <div style="font-size: 20px; font-weight: darker; color: green">
-                              <%= vote.receiver_id %> 
+                              <%= User.find(vote.user_id).first_name %>
                             </div>
                             <div style="font-size: 15px; font-weight: darker; ">
                               <%= truncate(vote.comment) %>
