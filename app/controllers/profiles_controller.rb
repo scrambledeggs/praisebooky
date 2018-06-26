@@ -5,8 +5,7 @@ class ProfilesController < ApplicationController
     @votes = Vote.all.order(created_at: :desc)
     @users = User.all
     
-    current_user = User.find(14) 
-    @remaining_votes_user = 25 - current_user.votes.count 
+    @current_user = User.find(10)
   end
 
 end

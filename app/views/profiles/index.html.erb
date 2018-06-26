@@ -3,20 +3,18 @@
     <div class="jumbotron p-3 text-center">
       <h1 class="display-4">ALEC</h1>
         <hr>
-          <% @users.each do |user| %> 
-            <div style="font-size: 20px; font-weight: darker; color: green"> 
-              <center>Points: <%= Vote.where(receiver_id: user.id).all.sum(:point) + 25 %></center>  
-            </div> 
-            <div style="font-size: 20px; font-weight: darker; color: green"> 
-              <center>Remaining Votes: <%= @remain_user %></center>  
-            </div> 
-            <div style="font-size: 20px; font-weight: darker; color: green"> 
-              <center>Praises Received: </center>  
-            </div> 
-            <div style="font-size: 20px; font-weight: darker; color: green"> 
-              <center>Criticisms Received: </center>  
-            </div> 
-          <% end %>                 
+          <div style="font-size: 20px; font-weight: darker; color: green"> 
+            <center>Points: <%= Vote.where(receiver_id: @current_user.id).all.sum(:point) + 25 %></center>  
+          </div> 
+          <div style="font-size: 20px; font-weight: darker; color: green"> 
+            <center>Remaining Votes: <%= 25 - @current_user.votes.count %></center>  
+          </div> 
+          <div style="font-size: 20px; font-weight: darker; color: green"> 
+            <center>Praises Received: </center>  
+          </div> 
+          <div style="font-size: 20px; font-weight: darker; color: green"> 
+            <center>Criticisms Received: </center>  
+          </div> 
     </div>
 
     <div class="row">
@@ -77,17 +75,6 @@
     </div>
   </div>
 </div>
-
-<!-- jQuery first, then Bootstrap JS. -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://unpkg.com/popper.js@1.12.5/dist/umd/popper.js"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.0.0-beta.3/dist/js/bootstrap-material-design.js"></script>
-
-<!-- Icons -->
-<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-<script>
-  feather.replace()
-</script>
 
 <!-- Graphs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
