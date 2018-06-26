@@ -80,7 +80,7 @@
                     <center><%= user.first_name %></center>
                   </td>
                   <td>
-                    <center><%= Vote.where(receiver_id: user.id).all.sum(:point) + 25 %></center>
+                    <center><%= user.votes.sum(:point) %></center>
                   </td>
                 </tr>
                 <% end %>

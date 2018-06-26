@@ -24,20 +24,10 @@
       <div class="jumbotron p-3 text-center">
         <h1 class="display-4">ALEC</h1>
           <hr>
-            <% @users.each do |user| %> 
-              <div style="font-size: 20px; font-weight: darker; color: green"> 
-                <center>Points: <%= Vote.where(receiver_id: user.id).all.sum(:point) + 25 %></center>  
-              </div> 
-              <div style="font-size: 20px; font-weight: darker; color: green"> 
-                <center>Remaining Votes: <%= @remain_user %></center>  
-              </div> 
-              <div style="font-size: 20px; font-weight: darker; color: green"> 
-                <center>Praises Received: </center>  
-              </div> 
-               <div style="font-size: 20px; font-weight: darker; color: green"> 
-                <center>Criticisms Received: </center>  
-              </div> 
-            <% end %>                 
+        <p class="lead">Points: 25</p>
+        <p class="lead">Remaining Votes: 25</p>
+        <p class="lead">Praises Received: 25</p>
+        <p class="lead">Criticisms Received: 25</p>
       </div>
 
       <div class="row">
