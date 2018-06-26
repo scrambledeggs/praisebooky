@@ -12,55 +12,31 @@
     <!-- Bootstrap core CSS -->
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Modal -->
-    <div class="modal" id="report">
-    <div class="modal-dialog">
-    <div class="modal-content">
-
-    <!-- Modal Header -->
-    <div class="modal-header">
-      <h4 class="modal-title">Report User</h4>
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-    </div>
-
-    <!-- Modal body -->
-    <div class="modal-body">
-      <input type="text" class="form-control" id="comment" placeholder="Report who?">
-      <input type="text" class="form-control" id="comment" placeholder="Type comment here">
-    </div>
-
-    <!-- Modal footer -->
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-      <button type="button" class="btn btn-primary">Submit</button>
-    </div>
-
-    </div>
-    </div>
-    </div>
-
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
   </head>
+
 
   <div class="container">
     <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">SCOREBOARD</h1>
-        <div class="btn-toolbar mb-2 mb-md-0"> 
-          <div class="btn-group mr-2">
-            <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#report">Report User</button>
+          <div class="btn-toolbar mb-2 mb-md-0"> 
+            <div class="btn-group mr-2">
+              <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#report">Report User</button>
+            </div>
+
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Department<span class="caret"></span>
+              </button>
+                <ul class="dropdown-menu">
+                  <li><a href="/scoreboards/tech">Tech</a></li>
+                  <li><a href="/scoreboards/businessdev">Business Dev</a></li>
+                  <li><a href="/scoreboards/marketing">Marketing</a></li>
+                  <li><a href="/scoreboards/operations">Operations</a></li>
+                </ul>
+            </div>
           </div>
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Department<span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="/scoreboards/tech">Tech</a></li>
-              <li><a href="/scoreboards/businessdev">Business Dev</a></li>
-              <li><a href="/scoreboards/marketing">Marketing</a></li>
-              <li><a href="/scoreboards/operations">Operations</a></li>
-            </ul>
-          </div>
-        </div>
       </div>
 
       <div class = "row">
@@ -73,16 +49,17 @@
                   <th><center>Points</center></th>
                 </tr>
               </thead>
+
               <tbody>
-                 <% @users.each do |user| %>
-                 <tr>
-                  <td>
-                    <center><%= user.first_name %></center>
-                  </td>
-                  <td>
-                    <center><%= user.votes.sum(:point) %></center>
-                  </td>
-                </tr>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td>
+                      <center><%= user.first_name %></center>
+                    </td>
+                    <td>
+                      <center><%= Vote.where(receiver_id: user.id).all.sum(:point) + 25 %></center>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -97,6 +74,7 @@
                   <th><center>Monthly Rewards</center></th>
                 </tr>
               </thead>
+
               <tbody>
                 <tr>
                   <td><center>75 - Item One</center></td>
@@ -112,23 +90,23 @@
           </div>
         </div>
       </div>
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-    </main>
+    <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+  </main>
   </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="../../../../assets/js/vendor/popper.min.js"></script>
+      <script src="../../../../dist/js/bootstrap.min.js"></script>
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script>
-      feather.replace()
-    </script>
-   
+      <!-- Icons -->
+      <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+      <script>
+        feather.replace()
+      </script>
+
   </body>
 </html>
