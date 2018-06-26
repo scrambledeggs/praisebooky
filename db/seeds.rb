@@ -17,6 +17,7 @@ puts "successfully made default user"
 vote = Vote.create!(point: 1, receiver_id: 2, comment: 'Good comment', department: department, user: user)
 vote1 = Vote.create!(point: 1, receiver_id: 2, comment: 'Good comment', department: department, user: user)
 vote2 = Vote.create!(point: -1, receiver_id: 2, comment: 'Good comment', department: department, user: user)
+vote3 = Vote.create!(point: -1, receiver_id: 2, comment: 'Good comment', department: department, user: user)
 
 puts "User successfully voted"
 
