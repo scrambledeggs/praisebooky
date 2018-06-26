@@ -5,7 +5,9 @@ class ProfilesController < ApplicationController
     @votes = Vote.all.order(created_at: :desc)
     @users = User.all
     
-    @current_user = User.find(10)
+    current_user = User.find(10)
+    @remaining_votes_user = 25 - current_user.votes.count
+    @points = Vote.where(receiver_id: current_user.id).all.sum(:point) + 25
   end
 
 end

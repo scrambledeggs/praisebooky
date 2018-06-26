@@ -4,10 +4,10 @@
       <h1 class="display-4">ALEC</h1>
         <hr>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Points: <%= Vote.where(receiver_id: @current_user.id).all.sum(:point) + 25 %></center>
+            <center>Points: <%= @points %></center>
           </div>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Remaining Votes: <%= 25 - @current_user.votes.count %></center>
+            <center>Remaining Votes: <%= @remaining_votes_user %></center>
           </div>
           <div style="font-size: 20px; font-weight: darker; color: green">
             <center>Praises Received: </center>
@@ -53,15 +53,6 @@
 
                           <% end %>
                         </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row">
-                      <div class="mic-info">
-                        <h4 class="media-heading text-uppercase reviews">ZARAH</h4>
-                        <h6 class=media-heading text-uppercase reviews"><mark>07/01/18</mark></h6> 
-                        <p class="media-comment">Bad comment</p>
                       </div>
                     </div>
                   </li>
