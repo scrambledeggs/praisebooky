@@ -27,7 +27,9 @@
 
       <h4 class="modal-title"><center>TECH TEAM</center></h4>
       
-      <%= render partial: 'form', locals: { vote: @vote } %>
+      <p> Voting for <%= User.find(params[:receiver]).first_name %> <%= User.find(params[:receiver]).last_name %> </p>
+
+      <%= render partial: 'form', locals: { vote: @vote, receiver: params[:receiver] } %>
 
     </main>
   </div>

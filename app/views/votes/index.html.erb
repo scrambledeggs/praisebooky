@@ -112,58 +112,11 @@
                 <td colspan="8"><center>image</center></td>
                 <td colspan="10"><center> <%= user.first_name %> <%= user.last_name %> </center></td>
                 <td class="td-actions">
-                  <a class="p-2 text-muted" href="/votes/:id/new"><button type="button" class="btn btn-success">Vote</button></a>
+                  <a class="p-2 text-muted" href="/votes/<%= user.id %>"><button type="button" class="btn btn-success">Vote</button></a>
                 </td>
               </tr>
               <!--% end %><-->
             <% end %>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Zarah</center></td>
-              <td class="td-actions">
-                <a class="p-2 text-muted" href="/votes/new"><button type="button" class="btn btn-success">Vote</button></a>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Chester</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Alec</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Drei</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Angelo</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Jett</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>

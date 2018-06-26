@@ -12,7 +12,6 @@ class VotesController < ApplicationController
 
   def create
     current_user = User.find(10)
-    receiver_user = User.find(11)
 
     @vote = Vote.new(vote_params)
 
@@ -33,6 +32,6 @@ class VotesController < ApplicationController
     end
 
     def vote_params
-      params.require(:vote).permit(:comment, :point)
+      params.require(:vote).permit(:comment, :point, :receiver_id)
     end
   end
