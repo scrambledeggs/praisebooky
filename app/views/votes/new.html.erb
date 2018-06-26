@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -15,58 +15,22 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
   </head>
-
   
   <div class="container">
     <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">RECENT ACTIVITY</h1>
+        <h1 class="h2">VOTES</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
+          <h1 class="h3">REMAINING VOTES: 25</h3>
         </div>
       </div>
 
-      <div class="table-responsive">
-        <table class="table table-inbox table-hover table-striped table-sm">
-          <thead>
-            <tr>
-              <th><center>Giver</center></th>
-              <th><center>Receiver</center></th>
-              <th><center>Points</center></th>
-              <th><center>Comment</center></th>
-              <th><center>Time</center></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @votes.each do |vote| %>
-              <tr>
-                <td>
-                  <center><%= User.find(vote.user_id).first_name %></center>
-                </td>
-                <td>
-                 <center><%= User.find(vote.receiver_id).first_name %></center>
-                </td>
-                <td>
-                  <center><%= vote.point %></center>
-                </td>
-                <td>
-                   <center><%= truncate(vote.comment) %></center>
-                </td>
-                <td>
-                  <center><%= vote.created_at %></center>
-                </td>
-              </tr>
-             <% end %>
-            <!--<tr>
-              <td>Zarah</td>
-              <td>Chester</td>
-              <td>+1</td>
-              <td>Insert positive comment </td>
-              <td>Date and Time </td>
-            </tr>-->
-          </tbody>
-        </table>
-      </div>
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+      <h4 class="modal-title"><center>TECH TEAM</center></h4>
+      
+      <p> Voting for <%= User.find(params[:receiver]).first_name %> <%= User.find(params[:receiver]).last_name %> </p>
+
+      <%= render partial: 'form', locals: { vote: @vote, receiver: params[:receiver] } %>
+
     </main>
   </div>
 
