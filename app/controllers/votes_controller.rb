@@ -4,6 +4,8 @@ class VotesController < ApplicationController
 
   def index
     @votes = Vote.all.order(created_at: :desc)
+    @users = User.all
+
   end
 
 
@@ -25,7 +27,7 @@ class VotesController < ApplicationController
     def vote_params
       params.require(:vote).permit(:comment)
     end
-  end
+end
   
 
 
