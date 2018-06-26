@@ -1,112 +1,76 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
-
-    <title>Dashboard Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
-  </head>
-
-
-  <div class="container">
-    <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">SCOREBOARD</h1>
-          <div class="btn-toolbar mb-2 mb-md-0"> 
-            <div class="btn-group mr-2">
-              <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#report">Report User</button>
-            </div>
-
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Department<span class="caret"></span>
-              </button>
-                <ul class="dropdown-menu">
-                  <li><a href="/scoreboards/tech">Tech</a></li>
-                  <li><a href="/scoreboards/businessdev">Business Dev</a></li>
-                  <li><a href="/scoreboards/marketing">Marketing</a></li>
-                  <li><a href="/scoreboards/operations">Operations</a></li>
-                </ul>
-            </div>
+<div class="container">
+  <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">SCOREBOARD</h1>
+        <div class="btn-toolbar mb-2 mb-md-0"> 
+          <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#report">Report User</button>
           </div>
-      </div>
 
-      <div class = "row">
-        <div class = "col">
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th><center>Name</center></th>
-                  <th><center>Points</center></th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @users.each do |user| %>
-                  <tr>
-                    <td>
-                      <center><%= user.first_name %></center>
-                    </td>
-                    <td>
-                      <center><%= Vote.where(receiver_id: user.id).all.sum(:point) + 25 %></center>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Department<span class="caret"></span>
+            </button>
+              <ul class="dropdown-menu">
+                <li><a href="/scoreboards/tech">Tech</a></li>
+                <li><a href="/scoreboards/businessdev">Business Dev</a></li>
+                <li><a href="/scoreboards/marketing">Marketing</a></li>
+                <li><a href="/scoreboards/operations">Operations</a></li>
+              </ul>
           </div>
         </div>
+    </div>
 
-        <div class = "col-sm-3">
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th><center>Monthly Rewards</center></th>
-                </tr>
-              </thead>
+    <div class = "row">
+      <div class = "col">
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th><center>Name</center></th>
+                <th><center>Points</center></th>
+              </tr>
+            </thead>
 
-              <tbody>
+            <tbody>
+              <% @users.each do |user| %>
                 <tr>
-                  <td><center>75 - Item One</center></td>
+                  <td>
+                    <center><%= user.first_name %></center>
+                  </td>
+                  <td>
+                    <center><%= Vote.where(receiver_id: user.id).all.sum(:point) + 25 %></center>
+                  </td>
                 </tr>
-                <tr>
-                  <td><center>60 - Item Two</center></td>
-                </tr>
-                <tr>
-                  <td><center>50 - Item Three</center></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
-    <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-  </main>
-  </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-      <script src="../../../../assets/js/vendor/popper.min.js"></script>
-      <script src="../../../../dist/js/bootstrap.min.js"></script>
+      <div class = "col-sm-3">
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th><center>Monthly Rewards</center></th>
+              </tr>
+            </thead>
 
-      <!-- Icons -->
-      <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-      <script>
-        feather.replace()
-      </script>
-
-  </body>
-</html>
+            <tbody>
+              <tr>
+                <td><center>75 - Item One</center></td>
+              </tr>
+              <tr>
+                <td><center>60 - Item Two</center></td>
+              </tr>
+              <tr>
+                <td><center>50 - Item Three</center></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+</main>
+</div>

@@ -4,10 +4,10 @@
       <h1 class="display-4"><%= @current_user.first_name.upcase %></h1>
         <hr>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Points: <%= Vote.where(receiver_id: @current_user.id).all.sum(:point) + 25 %></center>
+            <center>Points: <%= @points %></center>
           </div>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Remaining Votes: <%= 25 - @current_user.votes.count %></center>
+            <center>Remaining Votes: <%= @remaining_votes_user %></center>
           </div>
           <div style="font-size: 20px; font-weight: darker; color: green">
             <center>Praises Received: <%= @praise %></center>

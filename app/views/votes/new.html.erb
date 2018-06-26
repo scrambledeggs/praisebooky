@@ -7,9 +7,9 @@
       </div>
     </div>
     <h4 class="modal-title"><center>TECH TEAM</center></h4>    
-    <p> Voting for <%= User.find(params[:receiver]).first_name %> <%= User.find(params[:receiver]).last_name %> </p>
+    <p> Voting for <%= @receiver.first_name %> <%= @receiver.last_name %> </p>
 
-    <%= render partial: 'form', locals: { vote: @vote, receiver: params[:receiver] } %>
+    <%= render partial: 'form', locals: { vote: @vote, receiver_id: @receiver.id } %>
 
   </main>
 </div>
