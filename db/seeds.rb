@@ -14,3 +14,4 @@ user2 = User.create!(email: 'test2@gmail.com', first_name: 'test1', last_name: '
 vote = Vote.create!(point: 1, receiver_id: 11, comment: 'Good comment', department: department, user: user)
 
 puts "User successfully voted"
+
