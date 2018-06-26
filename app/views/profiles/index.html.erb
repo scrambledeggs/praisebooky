@@ -50,10 +50,24 @@
                   <ul class="list-group">
                     <li class="list-group-item">
                       <div class="row">
-                        <div class="mic-info">
-                          <h4 class="media-heading text-uppercase reviews">DREI</h4>
-                          <h6 class=media-heading text-uppercase reviews"><mark>07/02/18</mark></h6> 
-                          <p class="media-comment">Great work on the project!</p>
+                        <div class="col-sm-6">
+                          <div class="mic-info">
+                            <% @votes.each do |vote| %>
+                            
+                              <div style="font-size: 20px; font-weight: darker; color: green">
+                                <%= vote.receiver_id %> 
+                              </div>
+                          
+                              <div style="font-size: 15px; font-weight: darker; ">
+                                <%= truncate(vote.comment) %>
+                              </div>
+
+
+                              <div style="font-size: 10px; font-weight: darker; color: green">
+                                <center><%= vote.created_at %></center>
+                              </div>
+                            
+                                                <% end %>
                         </div>
                       </div>
                     </li>

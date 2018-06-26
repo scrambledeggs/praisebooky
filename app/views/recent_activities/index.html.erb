@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -26,31 +26,43 @@
       </div>
 
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table class="table table-inbox table-hover table-striped table-sm">
           <thead>
             <tr>
-              <th>Giver</th>
-              <th>Receiver</th>
-              <th>Points</th>
-              <th>Comment</th>
-              <th>Time</th>
+              <th><center>Giver</center></th>
+              <th><center>Receiver</center></th>
+              <th><center>Points</center></th>
+              <th><center>Comment</center></th>
+              <th><center>Time</center></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <% @votes.each do |vote| %>
+              <tr>
+                <td>
+                  <center><%= vote.user_id %></center>
+                </td>
+                <td>
+                 <center><%= vote.receiver_id %></center>
+                </td>
+                <td>
+                  <center><%= vote.point %></center>
+                </td>
+                <td>
+                   <center><%= truncate(vote.comment) %></center>
+                </td>
+                <td>
+                  <center><%= vote.created_at %></center>
+                </td>
+              </tr>
+             <% end %>
+            <!--<tr>
               <td>Zarah</td>
               <td>Chester</td>
               <td>+1</td>
               <td>Insert positive comment </td>
               <td>Date and Time </td>
-            </tr>
-            <tr>
-              <td>Chester</td>
-              <td>Alec</td>
-              <td>-1</td>
-              <td>Insert negative comment </td>
-              <td>Date and Time </td>
-            </tr>
+            </tr>-->
           </tbody>
         </table>
       </div>

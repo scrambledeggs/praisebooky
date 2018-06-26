@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+    before_action :set_vote, except: [ :index, :new, :create ]
+
 
   def index
     @votes = Vote.order(created_at: :desc)

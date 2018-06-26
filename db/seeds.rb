@@ -7,9 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 department = Department.create!(name: 'Tech')
 
-user1 = User.create!(email: 'test1@gmail.com', first_name: 'test', last_name: '1', department: department)
-user2 = User.create!(email: 'test2@gmail.com', first_name: 'test', last_name: '2', department: department)
+user = User.create!(email: 'clydeang421@gmail.com', first_name: 'Clyde', last_name: 'Ang', department: department)
 
-vote = Vote.create!(point: 1, comment: 'good comment', department: department, user: user1, receiver_id: 2)
+puts "successfully made default user"
 
-puts "successfully made default user, receiver, vote"
+vote = Vote.create!(point: 1, receiver_id: 2, comment: 'Good comment', department: department, user: user)
+vote1 = Vote.create!(point: 1, receiver_id: 2, comment: 'Good comment', department: department, user: user)
+vote2 = Vote.create!(point: -1, receiver_id: 2, comment: 'Good comment', department: department, user: user)
+vote3 = Vote.create!(point: -1, receiver_id: 2, comment: 'Good comment', department: department, user: user)
+
+puts "User successfully voted"
