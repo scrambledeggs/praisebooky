@@ -3,8 +3,8 @@ class VotesController < ApplicationController
 
 
   def index
-    @votes = Vote.order(created_at: :desc)
-    @users = User.order(created_at: :desc)
+    @votes = Vote.all.order(created_at: :desc)
+    @users = User.all
 
     current_user = User.find(10)
     @remain_user = 25 - current_user.votes.count
@@ -12,7 +12,6 @@ class VotesController < ApplicationController
 
   def new
     @vote = Vote.new
-  
   end
 
   def create
@@ -28,7 +27,6 @@ class VotesController < ApplicationController
       else
         render :new
       end
-
   end
 
   private
@@ -39,4 +37,5 @@ class VotesController < ApplicationController
     def vote_params
       params.require(:vote).permit(:comment, :point, :receiver_id)
     end
-  end
+end
+ 

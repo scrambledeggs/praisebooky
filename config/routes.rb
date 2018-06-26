@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     root to: 'scoreboards#index' 
   
     resources :votes 
-  
+
     resources :users do
     	resources :departments
     end
