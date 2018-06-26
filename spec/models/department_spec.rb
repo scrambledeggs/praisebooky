@@ -10,4 +10,3 @@ RSpec.describe Department, type: :model do
   it { should have_many(:votes) }
 
 end
-
