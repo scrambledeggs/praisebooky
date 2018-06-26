@@ -3,20 +3,18 @@
     <div class="jumbotron p-3 text-center">
       <h1 class="display-4">ALEC</h1>
         <hr>
-          <% @users.each do |user| %> 
-            <div style="font-size: 20px; font-weight: darker; color: green"> 
-              <center>Points: <%= Vote.where(receiver_id: user.id).all.sum(:point) + 25 %></center>  
-            </div> 
-            <div style="font-size: 20px; font-weight: darker; color: green"> 
-              <center>Remaining Votes: <%= @remaining_votes_user %></center>  
-            </div> 
-            <div style="font-size: 20px; font-weight: darker; color: green"> 
-              <center>Praises Received: </center>  
-            </div> 
-            <div style="font-size: 20px; font-weight: darker; color: green"> 
-              <center>Criticisms Received: </center>  
-            </div> 
-          <% end %>                 
+          <div style="font-size: 20px; font-weight: darker; color: green">
+            <center>Points: <%= Vote.where(receiver_id: @current_user.id).all.sum(:point) + 25 %></center>
+          </div>
+          <div style="font-size: 20px; font-weight: darker; color: green">
+            <center>Remaining Votes: <%= 25 - @current_user.votes.count %></center>
+          </div>
+          <div style="font-size: 20px; font-weight: darker; color: green">
+            <center>Praises Received: </center>
+          </div>
+          <div style="font-size: 20px; font-weight: darker; color: green">
+            <center>Criticisms Received: </center>
+          </div>
     </div>
 
     <div class="row">

@@ -11,6 +11,9 @@ class VotesController < ApplicationController
 
   def new
     @vote = Vote.new
+
+    current_user = User.find(10)
+    @remaining_votes_user = 25 - current_user.votes.count
   end
 
   def create
