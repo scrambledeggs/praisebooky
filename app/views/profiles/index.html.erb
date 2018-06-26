@@ -10,10 +10,10 @@
             <center>Remaining Votes: <%= 25 - @current_user.votes.count %></center>
           </div>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Praises Received: </center>
+            <center>Praises Received: <%= @praise %></center>
           </div>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Criticisms Received: </center>
+            <center>Criticisms Received: <%= @criticism %></center>
           </div>
     </div>
 
