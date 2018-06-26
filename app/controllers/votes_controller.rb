@@ -3,6 +3,9 @@ class VotesController < ApplicationController
   def index
     @votes = Vote.order(created_at: :desc)
     @users = User.order(created_at: :desc)
+
+    current_user = User.find(10)
+    @remain_user = 25 - current_user.votes.count
   end
 
   def new
