@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
     @votes = Vote.all.order(created_at: :desc)
     @users = User.all
     
-    @current_user = User.find(10)
+    @current_user = User.find(14)
   end
 
 end
