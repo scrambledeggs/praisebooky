@@ -42,7 +42,7 @@
                           <% @votes.each do |vote| %>
 
                             <div style="font-size: 20px; font-weight: darker; color: green">
-                              <%= vote.receiver_id %> 
+                              <%= User.find(vote.user_id).first_name %>
                             </div>
                             <div style="font-size: 15px; font-weight: darker; ">
                               <%= truncate(vote.comment) %>
@@ -53,15 +53,6 @@
 
                           <% end %>
                         </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row">
-                      <div class="mic-info">
-                        <h4 class="media-heading text-uppercase reviews">ZARAH</h4>
-                        <h6 class=media-heading text-uppercase reviews"><mark>07/01/18</mark></h6> 
-                        <p class="media-comment">Bad comment</p>
                       </div>
                     </div>
                   </li>

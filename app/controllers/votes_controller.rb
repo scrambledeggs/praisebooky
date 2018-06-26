@@ -5,19 +5,19 @@ class VotesController < ApplicationController
     @votes = Vote.all.order(created_at: :desc)
     @users = User.all
 
-    current_user = User.find(10)
+    current_user = User.find(14)
     @remaining_votes_user = 25 - current_user.votes.count
   end
 
   def new
     @vote = Vote.new
 
-    current_user = User.find(10)
+    current_user = User.find(14)
     @remaining_votes_user = 25 - current_user.votes.count
   end
 
   def create
-    current_user = User.find(10)
+    current_user = User.find(14)
 
     @vote = Vote.new(vote_params)
 
