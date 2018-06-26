@@ -12,6 +12,7 @@ RSpec.describe Vote, type: :model do
   end
 
   it { should belong_to(:department) }
-  it { should belong_to(:user) }
+  it { should belong_to(:voter) }
+  it { should belong_to(:receiver) }
 
 end
