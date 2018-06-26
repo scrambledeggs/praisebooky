@@ -98,7 +98,7 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">VOTES</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-          <h1 class="h3">REMAINING VOTES: 25</h3>
+          <h1 class="h3">REMAINING VOTES: <%= @remain_user %></h3>
         </div>
       </div>
 
@@ -106,54 +106,17 @@
       <div class="table-responsive">
         <table class="table table-inbox table-hover table-striped">
           <tbody>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Zarah</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#criticize">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Chester</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Alec</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Drei</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Angelo</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
-            <tr class="">
-              <td colspan="8"><center>image</center></td>
-              <td colspan="10"><center>Jett</center></td>
-              <td class="td-actions">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#praise">Praise</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#criticize">Criticize</button>
-              </td>
-            </tr>
+            <% @users.each do |user| %>
+              <!--% if user.department_id ==  current_user.department_id %><-->
+              <tr class="">
+                <td colspan="8"><center>image</center></td>
+                <td colspan="10"><center> <%= user.first_name %> <%= user.last_name %> </center></td>
+                <td class="td-actions">
+                  <a class="p-2 text-muted" href="/votes/<%= user.id %>"><button type="button" class="btn btn-success">Vote</button></a>
+                </td>
+              </tr>
+              <!--% end %><-->
+            <% end %>
           </tbody>
         </table>
       </div>
