@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container">
     <div class="jumbotron p-3 text-center">
-      <h1 class="display-4">ALEC</h1>
+      <h1 class="display-4"><%= @current_user.first_name.upcase %></h1>
         <hr>
           <div style="font-size: 20px; font-weight: darker; color: green">
             <center>Points: <%= Vote.where(receiver_id: @current_user.id).all.sum(:point) + 25 %></center>
@@ -43,7 +43,7 @@
                             <%= vote.created_at %>
                           </div>
                           <div style="font-size: 20px; font-weight: darker; color: green;">
-                            <%= User.find(vote.user_id).first_name %>
+                            <%= User.find(vote.user_id).first_name.upcase %>
                           </div>
                           <div style="font-size: 18px; font-weight: darker; ">
                             <%= truncate(vote.comment) %>
