@@ -18,3 +18,4 @@ vote1 = Vote.create!(point: 1, receiver_id: 2, comment: 'Good comment', departme
 vote2 = Vote.create!(point: -1, receiver_id: 2, comment: 'Good comment', department: department, user: user)
 
 puts "User successfully voted"
+

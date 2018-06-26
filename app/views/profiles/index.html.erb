@@ -8,7 +8,7 @@
               <center>Points: <%= Vote.where(receiver_id: user.id).all.sum(:point) + 25 %></center>  
             </div> 
             <div style="font-size: 20px; font-weight: darker; color: green"> 
-              <center>Remaining Votes: <%= @remain_user %></center>  
+              <center>Remaining Votes: <%= @remaining_votes_user %></center>  
             </div> 
             <div style="font-size: 20px; font-weight: darker; color: green"> 
               <center>Praises Received: </center>  
