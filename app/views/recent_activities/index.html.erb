@@ -20,10 +20,10 @@
           <% @votes.each do |vote| %>
             <tr>
               <td>
-                <center><%= User.find(vote.user_id).first_name %></center>
+                <center><%= vote.user.first_name %></center>
               </td>
               <td>
-               <center><%= User.find(vote.receiver_id).first_name %></center>
+                <center><%= User.find(vote.receiver_id).first_name %></center>
               </td>
               <td>
                 <center><%= vote.point %></center>
