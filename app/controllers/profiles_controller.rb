@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
     @remaining_votes_user = 25 - @current_user.votes.count
 
     #change receiver_id to receiver
+    #make it monthly
     @praise = Vote.where(receiver_id: @current_user.id).where("point > ?", 0).sum(:point)
     @criticism = -Vote.where(receiver_id: @current_user.id).where("point < ?", 0).sum(:point)
   end
