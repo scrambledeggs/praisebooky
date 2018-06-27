@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
 
   def index
     @votes = Vote.all.order(created_at: :desc)
-    @users = User.all
     
     @current_user = User.find(7)
 
