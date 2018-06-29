@@ -43,7 +43,7 @@
                             <%= vote.created_at %>
                           </div>
                           <div style="font-size: 20px; font-weight: darker; color: green;">
-                            <%= User.find(vote.user_id).first_name.upcase %>
+                            <%= vote.voter.first_name.upcase %>
                           </div>
                           <div style="font-size: 18px; font-weight: darker; ">
                             <%= truncate(vote.comment) %>
