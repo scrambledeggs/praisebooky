@@ -10,9 +10,9 @@ class ProfilesController < ApplicationController
     @users = User.all
     
     current_user = User.find(10)
-
-    @remaining_votes_user = 25 - current_user.votes.where(created_at: start_date..end_date).count
-    @points = Vote.where(receiver_id: current_user.id).where(created_at: start_date..end_date).all.sum(:point) + 25
+    
+    @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).all.sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).all.sum(:point)
+    @points = current_user.votes_received.where(created_at: start_date..end_date).all.sum(:point) + 25
   end
 
 end
