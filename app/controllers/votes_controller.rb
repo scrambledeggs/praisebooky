@@ -6,14 +6,14 @@ class VotesController < ApplicationController
     @users = User.all
 
     current_user = User.find(10)
-    @remaining_votes_user = 25 - Vote.where(voter: current_user).where("point > ?", 0).all.sum(:point) + Vote.where(voter: current_user).where("point < ?", 0).all.sum(:point)
+    @remaining_votes_user = 25 - current_user.votes_made.where("point > ?", 0).all.sum(:point) + current_user.votes_made.where("point < ?", 0).all.sum(:point)
   end
 
   def new
     @vote = Vote.new
 
     current_user = User.find(10)
-    @remaining_votes_user = 25 - Vote.where(voter: current_user).where("point > ?", 0).all.sum(:point) + Vote.where(voter: current_user).where("point < ?", 0).all.sum(:point)
+    @remaining_votes_user = 25 - current_user.votes_made.where("point > ?", 0).all.sum(:point) + current_user.votes_made.where("point < ?", 0).all.sum(:point)
 
     @receiver = User.find(params[:receiver])
   end
