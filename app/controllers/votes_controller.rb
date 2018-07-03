@@ -6,12 +6,12 @@ class VotesController < ApplicationController
     start_date = t.at_beginning_of_month
     end_date = t.at_end_of_month
 
-    @votes = Vote.all.order(created_at: :desc)
-    @users = User.all.order(first_name: :asc)
+    @votes = Vote.order(created_at: :desc)
+    @users = User.order(first_name: :asc)
 
     current_user = User.find(10)
     
-    @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).all.sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).all.sum(:point)
+    @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
   end
 
   def new
@@ -23,7 +23,7 @@ class VotesController < ApplicationController
 
     current_user = User.find(10)
 
-    @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).all.sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).all.sum(:point)
+    @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
 
     @receiver = User.find(params[:receiver])
   end
