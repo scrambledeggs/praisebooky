@@ -30,7 +30,7 @@
         <h1 class="h3">REMAINING VOTES: <%= @remaining_votes_user %></h3>
       </div>
     </div>
-    <h4 class="modal-title"><center>TECH TEAM</center></h4>
+    <h4 class="modal-title"><center><%= @current_user.department.name.upcase %> TEAM</center></h4>
 
     <% if flash[:alert] %>
       <div class="alert"><%= flash[:alert] %></div>
@@ -40,7 +40,7 @@
       <table class="table table-inbox table-hover table-striped">
         <tbody>
           <% @users.each do |user| %>
-            <!--%if user.department.eql? @current_user.department %><-->
+            <% if user.department.eql? @current_user.department %>
               <%if user !=  @current_user %>
                 <tr class="">
                   <td colspan="8"><center>image</center></td>
@@ -50,7 +50,7 @@
                   </td>
                 </tr>
               <% end %>
-            <!--% end %><-->
+            <% end %>
           <% end %>
         </tbody>
       </table>
