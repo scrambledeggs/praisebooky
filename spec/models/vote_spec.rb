@@ -16,6 +16,11 @@ RSpec.describe Vote, type: :model do
     expect(vote).to be_invalid
   end
 
+  it "should be impossible to vote with insufficient votes" do
+    vote = Vote.create(user_id: 1, receiver_id: 2, comment: "something", point: 26)
+    expect(vote).to be_invalid
+  end
+
   it { should belong_to(:department) }
   it { should belong_to(:voter) }
   it { should belong_to(:receiver) }
