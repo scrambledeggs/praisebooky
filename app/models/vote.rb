@@ -20,7 +20,7 @@ class Vote < ApplicationRecord
     start_date = t.at_beginning_of_month
     end_date = t.at_end_of_month
     
-    total_votes = self.voter.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).all.sum(:point) - self.voter.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).all.sum(:point)
+    total_votes = Vote.where(voter: self.voter).where(created_at: start_date..end_date).where("point > ?", 0).all.sum(:point) - Vote.where(voter: self.voter).where(created_at: start_date..end_date).where("point < ?", 0).all.sum(:point)
 
     if total_votes + point.to_i.abs > 25
       @errors.add(:vote, "You have insufficient votes")
