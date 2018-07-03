@@ -7,7 +7,7 @@ class VotesController < ApplicationController
     end_date = t.at_end_of_month
 
     @votes = Vote.all.order(created_at: :desc)
-    @users = User.all
+    @users = User.all.order(first_name: :asc)
 
     current_user = User.find(10)
     

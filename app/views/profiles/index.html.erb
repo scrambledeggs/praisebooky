@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container">
     <div class="jumbotron p-3 text-center">
-      <h1 class="display-4">ALEC</h1>
+      <h1 class="display-4"><%= @current_user.first_name.upcase %></h1>
         <hr>
           <div style="font-size: 20px; font-weight: darker; color: green">
             <center>Points: <%= @points %></center>
@@ -10,10 +10,10 @@
             <center>Remaining Votes: <%= @remaining_votes_user %></center>
           </div>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Praises Received: </center>
+            <center>Praises Received: <%= @praise %></center>
           </div>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Criticisms Received: </center>
+            <center>Criticisms Received: <%= @criticism %></center>
           </div>
     </div>
 
@@ -37,22 +37,18 @@
                 <ul class="list-group">
                   <li class="list-group-item">
                     <div class="row">
-                      <div class="col-sm-6">
-                        <div class="mic-info">
-                          <% @votes.each do |vote| %>
-
-                            <div style="font-size: 20px; font-weight: darker; color: green">
-                              <%= vote.receiver_id %> 
-                            </div>
-                            <div style="font-size: 15px; font-weight: darker; ">
-                              <%= truncate(vote.comment) %>
-                            </div>
-                            <div style="font-size: 10px; font-weight: darker; color: green">
-                              <center><%= vote.created_at %></center>
-                            </div>
-
-                          <% end %>
-                        </div>
+                      <div class="mic-info" style="width: 100%;">
+                        <% @votes.each do |vote| %>
+                          <div style="font-size: 12px; font-weight: darker; color: green; float: right;">
+                            <%= vote.created_at %>
+                          </div>
+                          <div style="font-size: 20px; font-weight: darker; color: green;">
+                            <%= vote.voter.first_name.upcase %>
+                          </div>
+                          <div style="font-size: 18px; font-weight: darker; ">
+                            <%= truncate(vote.comment) %>
+                          </div>
+                        <% end %>
                       </div>
                     </div>
                   </li>
