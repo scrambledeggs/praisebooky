@@ -11,7 +11,7 @@ user = User.create!(email: 'test1@gmail.com', first_name: 'test1', last_name: '1
 
 user2 = User.create!(email: 'test2@gmail.com', first_name: 'test1', last_name: '2', department: department)
 
-vote = Vote.create!(point: 1, comment: 'Good comment', department: Department.find(13), user: User.find(7), receiver_id: 11, created_at: 1.month.ago)
+vote = Vote.create!(point: 1, comment: 'Good comment', department: Department.find(13), voter: User.find(10), receiver: User.find(11))
 
 puts "User successfully voted"
 
