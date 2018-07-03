@@ -30,8 +30,12 @@
         <h1 class="h3">REMAINING VOTES: <%= @remaining_votes_user %></h3>
       </div>
     </div>
-
     <h4 class="modal-title"><center>TECH TEAM</center></h4>
+
+    <% if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+
     <div class="table-responsive">
       <table class="table table-inbox table-hover table-striped">
         <tbody>
