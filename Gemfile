@@ -69,3 +69,11 @@ gem 'bootstrap', '~> 4.1.1'
 # Adds Omniauth for log-in authentication
 gem "omniauth" 
 gem "omniauth-google-oauth2" 
+
+gem 'activeadmin'
+
+# Plus integrations with:
+gem 'devise'
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
