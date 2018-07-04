@@ -1,8 +1,8 @@
-ActiveAdmin.register User do
+ActiveAdmin.register MonthlyReward do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :email, :first_name, :last_name, :admin, :manager, :department_id
+permit_params :point, :description
 #
 # or
 #
