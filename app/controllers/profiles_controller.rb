@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
 
     @votes = Vote.order(created_at: :desc)
     
-    @current_user = User.find(1)
+    @current_user = User.find(params[:id])
     
     @remaining_votes_user = 25 - @current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + @current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
     @points = @current_user.votes_received.where(created_at: start_date..end_date).sum(:point) + 25

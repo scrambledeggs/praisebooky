@@ -35,7 +35,8 @@
               <% @users.each do |user| %>
                 <tr>
                   <td>
-                    <center><%= user.first_name %></center>
+                    <center><%= link_to user.first_name, profiles_index_path(id: user) %></center>
+                  
                   </td>
                   <td>
                     <center><%= user.votes_received.all.sum(:point) + 25 %></center>
