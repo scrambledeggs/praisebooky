@@ -57,15 +57,16 @@
             </thead>
 
             <tbody>
-              <tr>
-                <td><center>75 - Item One</center></td>
-              </tr>
-              <tr>
-                <td><center>60 - Item Two</center></td>
-              </tr>
-              <tr>
-                <td><center>50 - Item Three</center></td>
-              </tr>
+              <% @monthlyrewards.each do |monthlyrewards| %>
+                <tr>
+                  <td>
+                    <center><%= monthlyrewards.point %></center>
+                  </td>
+                  <td>
+                    <%= monthlyrewards.description%>
+                  </td>
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
