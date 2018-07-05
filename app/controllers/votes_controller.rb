@@ -9,7 +9,7 @@ class VotesController < ApplicationController
     @votes = Vote.order(created_at: :desc)
     @users = User.order(first_name: :asc)
 
-    current_user = User.find(10)
+    current_user = User.find(1)
     
     @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
   end
@@ -21,7 +21,7 @@ class VotesController < ApplicationController
 
     @vote = Vote.new
 
-    current_user = User.find(10)
+    current_user = User.find(1)
 
     @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
 
@@ -29,7 +29,7 @@ class VotesController < ApplicationController
   end
 
   def create
-    current_user = User.find(10)
+    current_user = User.find(1)
 
     @vote = Vote.new(vote_params)
 
