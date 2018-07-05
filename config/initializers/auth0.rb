@@ -1,9 +1,9 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider(
     :auth0,
-    Rails.application.secrets.auth0_client_id,
-    Rails.application.secrets.auth0_client_secret,
-    Rails.application.secrets.auth0_domain,
+    'E1AFx4xIY-fFhudQQyZI1ykhJCp3vyDV',
+    'rQLgUCoBS1wytCx3fdbaMABf1USGlcnqEpAexoG741Le_XWsXKe2CBnQsQl1ox31',
+    'praisebooky.auth0.com',
     callback_path: "/auth/oauth2/callback",
     authorize_params: {
       scope: 'openid email profile',
