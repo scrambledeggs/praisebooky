@@ -73,18 +73,18 @@
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th><center>Points</center></th>
-                <th><center>Item</center></th>
+                <th width = "30%"><center>Points</center></th>
+                <th width = "70%"><center>Item</center></th>
               </tr>
             </thead>
 
             <tbody>
               <% @monthlyrewards.each do |monthlyrewards| %>
                 <tr>
-                  <td>
+                  <td width = "30%">
                     <center><%= monthlyrewards.point %></center>
                   </td>
-                  <td>
+                  <td width = "70%">
                     <center><%= monthlyrewards.description%></center>
                   </td>
                 </tr>
