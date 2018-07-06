@@ -16,17 +16,17 @@
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th><center>Name</center></th>
-                <th><center>Points</center></th>
+                <th width = "50%"><center>Name</center></th>
+                <th width = "50%"><center>Points</center></th>
               </tr>
             </thead>
             <tbody>
               <% @users_same_department.each do |user| %>
                 <tr>
-                  <td>
+                  <td width = "50%">
                     <center><%= link_to user.first_name, profiles_index_path(id: user) %></center>
                   </td>
-                  <td>
+                  <td width = "50%">
                     <center><%= user.vote_sum %></center>
                   </td>
                 </tr>
@@ -44,8 +44,8 @@
                 <table class="table table-striped table-sm">
                   <thead>
                     <tr>
-                      <th><center>Name</center></th>
-                      <th><center>Points</center></th>
+                      <th width = "50%"><center>Name</center></th>
+                      <th width = "50%"><center>Points</center></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -54,7 +54,7 @@
                         <td width = "50%"> 
                           <center><%= link_to user.first_name, profiles_index_path(id: user) %></center>
                         </td>
-                        <td>
+                        <td width = "50%">
                           <center><%= user.vote_sum %></center>
                         </td>
                       </tr>
