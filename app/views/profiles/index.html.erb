@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container">
     <div class="jumbotron p-3 text-center">
-      <h1 class="display-4"><%= @current_user.first_name.upcase %></h1> 
+      <h1 class="display-4"><%= @profile_user.first_name.upcase %></h1> 
         <hr>
           <div style="font-size: 20px; font-weight: darker; color: green">
             <center>TOTAL POINTS: <%= @points %></center>
@@ -36,7 +36,7 @@
                   <li class="list-group-item">
                     <div class="row">
                       <div class="mic-info" style="width: 100%;">
-                        <% @current_user.votes_received.each do |vote| %>
+                        <% @profile_user.votes_received.each do |vote| %>
                           <div style="font-size: 12px; font-weight: darker; color: green; float: right;">
                             <%= vote.created_at %>
                           </div>
