@@ -1,18 +1,37 @@
 <%= form_for vote do |f| %>
-  <p>
-    <%= f.label :comment%><br />
-    <%= f.text_field :comment, class: 'col-10' %><br />
+  <% if @current_user.manager %>
+    <p>
+      <%= f.label :comment%><br />
+      <%= f.text_field :comment, class: 'col-10' %><br />
 
-    <%= f.hidden_field :receiver_id, value: receiver_id %>
-  </p>
-  <p>
-    <%= f.radio_button :point, 1 %>
-    <%= f.label :point, "Praise", class: 'col-1 row-3'%>
+      <%= f.hidden_field :receiver_id, value: receiver_id %>
+    </p>
+    <p>
+      <%= f.label :point, "Praise or Criticize", class: 'col-10' %><br />
+      <%= f.text_field :point %><br />
+    </p>
+    <p>
+      <%= f.submit "Submit", class: 'btn btn-primary btn-block col-2' %>
+      <%= link_to "Cancel", votes_path, class: "btn btn-link col-2" %>
+    </p>
 
-    <%= f.radio_button :point, -1 %>
-    <%= f.label :point, "Criticize", class: 'col-1'%><br />
+  <% else %>
+    <p>
+      <%= f.label :comment%><br />
+      <%= f.text_field :comment, class: 'col-10' %><br />
 
-    <%= f.submit "Submit", class: 'btn btn-primary btn-block col-2' %>
-    <%= link_to "Cancel", votes_path, class: "btn btn-link col-2" %>
-  </p>
+      <%= f.hidden_field :receiver_id, value: receiver_id %>
+    </p>
+    <p>
+      <%= f.radio_button :point, 1 %>
+      <%= f.label :point, "Praise", class: 'col-1 row-3'%>
+
+      <%= f.radio_button :point, -1 %>
+      <%= f.label :point, "Criticize", class: 'col-1'%><br />
+
+      <%= f.submit "Submit", class: 'btn btn-primary btn-block col-2' %>
+      <%= link_to "Cancel", votes_path, class: "btn btn-link col-2" %>
+    </p>
+
+  <% end %>
 <% end %>
