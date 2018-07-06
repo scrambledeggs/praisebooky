@@ -8,12 +8,12 @@ class ProfilesController < ApplicationController
 
     @votes = Vote.order(created_at: :desc)
     
-    @current_user = User.find(params[:id])
+    @profile_user = User.find(params[:id])
     
-    @remaining_votes_user = 25 - @current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + @current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
-    @points = @current_user.votes_received.where(created_at: start_date..end_date).sum(:point) + 25
+    @remaining_votes_user = 25 - @profile_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + @profile_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
+    @points = @profile_user.votes_received.where(created_at: start_date..end_date).sum(:point) + 25
 
-    @praise = @current_user.votes_received.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point)
-    @criticism = -@current_user.votes_received.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
+    @praise = @profile_user.votes_received.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point)
+    @criticism = -@profile_user.votes_received.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
   end
 end
