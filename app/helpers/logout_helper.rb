@@ -1,7 +1,7 @@
 module LogoutHelper
   def logout_url
-    domain = Rails.application.secrets.auth0_domain
-    client_id = Rails.application.secrets.auth0_client_id
+    domain = 'praisebooky.auth0.com'
+    client_id = 'E1AFx4xIY-fFhudQQyZI1ykhJCp3vyDV'
     request_params = {
       returnTo: root_url,
       client_id: client_id
