@@ -39,7 +39,7 @@
                   
                   </td>
                   <td>
-                    <center><%= user.votes_received.all.sum(:point) + 25 %></center>
+                    <center><%= user.vote_count %></center>
                   </td>
                 </tr>
               <% end %>

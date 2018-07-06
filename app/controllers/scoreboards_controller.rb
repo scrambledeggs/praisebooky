@@ -1,16 +1,6 @@
 class ScoreboardsController < ApplicationController
   def index
-    @users = User.all
-    User.includes(:first_name).order("vote.point DESC")
-    @monthlyrewards = MonthlyReward.all
-
-    #User.joins(:first_name).order('votes_received.point desc')
-   
-
+    @users = User.select('users.id, users.first_name, (COALESCE(SUM(votes.point), 0) + 25) as vote_count').left_outer_joins(:votes_received).group('users.id, users.first_name').order("vote_count DESC")
+    @monthlyrewards = MonthlyReward.all   
   end
-
 end
-
-
-
-
