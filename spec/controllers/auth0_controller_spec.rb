@@ -1,7 +1,5 @@
 require 'rails_helper'
-
 RSpec.describe Auth0Controller, type: :controller do
-
   describe "GET #callback" do
     it "returns http success" do
       get :callback
@@ -15,5 +13,4 @@ RSpec.describe Auth0Controller, type: :controller do
       expect(response).to have_http_status(:redirect)
     end
   end
-
 end

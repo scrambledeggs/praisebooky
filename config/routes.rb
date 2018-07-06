@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get 'publics/index'
   get 'votes/:receiver' => 'votes#new'
   
-  # root to: 'scoreboards#index'
   root to: 'home#show' 
   
   resources :votes 
