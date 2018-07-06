@@ -11,5 +11,7 @@ class Auth0Controller < ApplicationController
     # show a failure page or redirect to an error page
     @error_type = request.params['error_type']
     @error_msg = request.params['message']
+
+    redirect_to '/logout/show'
   end
 end
