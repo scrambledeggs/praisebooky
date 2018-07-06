@@ -13,7 +13,7 @@ User.create!(email: 'test2@gmail.com', first_name: 'test1', last_name: '2', depa
 
 #Vote.create!(point: 1, receiver_id: 15, comment: 'Good comment', department: Department.find(14), user: User.find(14))
 
-#Vote.create!(point: 1, comment: 'Good comment', department: Department.find(13), user: User.find(7), receiver_id: 11, created_at: 1.month.ago)
+Vote.create!(point: 1, comment: 'good', department: Department.find(2), user_id: 4, receiver_id: 5)
 
 puts "User successfully voted"
 
