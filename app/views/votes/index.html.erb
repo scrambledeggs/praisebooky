@@ -39,11 +39,12 @@
     <div class="table-responsive">
       <table class="table table-inbox table-hover table-striped">
         <tbody>
-          <% @current_user.department.users.each do |user| %>
+          <% @users_same_department.each do |user| %>
             <%if user !=  @current_user %>
-              <tr class="">
-                <td colspan="8"><center>image</center></td>
-                <td colspan="10"><center> <%= user.first_name %> <%= user.last_name %> </center></td>
+              <tr>
+                <td>
+                  <center><%= user.first_name %> <%= user.last_name %></center>
+                </td>
                 <td class="td-actions">
                   <a class="p-2 text-muted" href="/votes/<%= user.id %>"><button type="button" class="btn btn-success">Vote</button></a>
                 </td>
