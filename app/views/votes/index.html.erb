@@ -15,7 +15,7 @@
 
     <!-- Modal footer -->
     <div class="modal-footer">
-    	<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
     </div>
 
     </div>
@@ -30,20 +30,25 @@
         <h1 class="h3">REMAINING VOTES: <%= @remaining_votes_user %></h3>
       </div>
     </div>
-
     <h4 class="modal-title"><center><%= @current_user.department.name.upcase %> TEAM</center></h4>
+
+    <% if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+
     <div class="table-responsive">
       <table class="table table-inbox table-hover table-striped">
         <tbody>
-          <% @users.each do |user| %>
-            <!--% if user.department_id ==  current_user.department_id %><-->
-            <tr class="">
-              <td colspan="10"><center> <%= user.first_name %> <%= user.last_name %> </center></td>
-              <td class="td-actions">
-                <a class="p-2 text-muted" href="/votes/<%= user.id %>"><button type="button" class="btn btn-success">Vote</button></a>
-              </td>
-            </tr>
-            <!--% end %><-->
+          <% @current_user.department.users.each do |user| %>
+            <%if user !=  @current_user %>
+              <tr class="">
+                <td colspan="8"><center>image</center></td>
+                <td colspan="10"><center> <%= user.first_name %> <%= user.last_name %> </center></td>
+                <td class="td-actions">
+                  <a class="p-2 text-muted" href="/votes/<%= user.id %>"><button type="button" class="btn btn-success">Vote</button></a>
+                </td>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>

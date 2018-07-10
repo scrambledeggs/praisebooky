@@ -34,7 +34,7 @@ class VotesController < ApplicationController
     if @vote.save
       redirect_to votes_path
     else
-      render :new
+      redirect_to votes_path, alert: "Invalid vote, please ensure you chose a non-zero score, have sufficient votes, and are not voting yourself"
     end
   end
 
