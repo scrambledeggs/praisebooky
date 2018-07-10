@@ -1,9 +1,9 @@
 class ProfilesController < ApplicationController
   def index
     @profile_user = User.find(params[:id])
-    @current_user = User.find(1)
+    current_user = User.find(1)
 
-    redirect_to profiles_index_path(id: @current_user), alert: "You can only view profiles within your department" unless @profile_user.department == @current_user.department || @current_user.manager
+    redirect_to profiles_index_path(id: current_user), alert: "You can only view profiles within your department" unless @profile_user.department == current_user.department || current_user.manager
 
     t = Time.now
     start_date = t.at_beginning_of_month
@@ -21,6 +21,5 @@ class ProfilesController < ApplicationController
   def me
     current_user = User.find(1)
     redirect_to profiles_index_path(id: current_user)
-    # redirect_to "/profiles/index?id=#{current_user.id}"
   end
 end
