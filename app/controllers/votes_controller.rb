@@ -8,9 +8,9 @@ class VotesController < ApplicationController
     start_date = t.at_beginning_of_month
     end_date = t.at_end_of_month
 
+    @current_user = User.find(1)
     @votes = Vote.order(created_at: :desc)
-    @users = User.order(first_name: :asc)
-
+    @users = User.where(department: @current_user.department).order(first_name: :asc)
     @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
   end
 
@@ -20,9 +20,8 @@ class VotesController < ApplicationController
     end_date = t.at_end_of_month
 
     @vote = Vote.new
-
+    @current_user = User.find(1)
     @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
-
     @receiver = User.find(params[:receiver])
   end
 

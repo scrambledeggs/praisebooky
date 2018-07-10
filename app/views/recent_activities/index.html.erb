@@ -17,7 +17,12 @@
           </tr>
         </thead>
         <tbody>
-          <% @votes.each do |vote| %>
+          <% if @current_user.manager %>
+            <% votes = @votes_all %>
+          <% else %>
+            <% votes = @votes_same_department %>
+          <% end %>
+          <% votes.each do |vote| %>
             <tr>
               <td>
                 <center><%= vote.voter.first_name %></center>

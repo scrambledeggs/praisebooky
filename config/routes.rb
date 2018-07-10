@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
   get '/auth/oauth2/callback', to: 'auth0#callback'
   get '/auth/failure', to: 'auth0#failure'
   get '/logout', to: 'logout#logout'

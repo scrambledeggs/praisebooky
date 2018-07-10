@@ -6,8 +6,8 @@
         <h1 class="h3">REMAINING VOTES: <%= @remaining_votes_user %></h3>
       </div>
     </div>
-    <h4 class="modal-title"><center>TECH TEAM</center></h4>    
-    <p> Voting for <%= @receiver.first_name %> <%= @receiver.last_name %> </p>
+    <h4 class="modal-title"><center><%= @current_user.department.name.upcase %> TEAM</center></h4>    
+    <h5> Voting for <%= @receiver.first_name %> <%= @receiver.last_name %> </h5>
 
     <%= render partial: 'form', locals: { vote: @vote, receiver_id: @receiver.id } %>
 
