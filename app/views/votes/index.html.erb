@@ -32,6 +32,11 @@
     </div>
 
     <h4 class="modal-title"><center><%= @current_user.department.name.upcase %> TEAM</center></h4>
+
+    <% if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+
     <div class="table-responsive">
       <table class="table table-inbox table-hover table-striped">
         <tbody>

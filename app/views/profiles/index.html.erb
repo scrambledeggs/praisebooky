@@ -1,4 +1,7 @@
 <div class="container">
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
   <div class="container">
     <div class="jumbotron p-3 text-center">
       <h1 class="display-4"><%= @profile_user.first_name.upcase %></h1> 
