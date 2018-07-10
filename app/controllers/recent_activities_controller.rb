@@ -1,4 +1,6 @@
 class RecentActivitiesController < ApplicationController
+  include Secured
+  
   def index
     @current_user = User.find(1)
     @votes_all = Vote.order(created_at: :desc)
