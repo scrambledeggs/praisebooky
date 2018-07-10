@@ -1,6 +1,4 @@
 class ProfilesController < ApplicationController
-  before_action :set_vote, except: [ :index, :new, :create ]
-
   def index
     @profile_user = User.find(params[:id])
     @current_user = User.find(1)
@@ -18,5 +16,11 @@ class ProfilesController < ApplicationController
 
     @praise = @profile_user.votes_received.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point)
     @criticism = -@profile_user.votes_received.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
+  end
+
+  def me
+    current_user = User.find(1)
+    redirect_to profiles_index_path(id: current_user)
+    # redirect_to "/profiles/index?id=#{current_user.id}"
   end
 end

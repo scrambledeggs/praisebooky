@@ -1,6 +1,4 @@
 class VotesController < ApplicationController
-  before_action :set_vote, except: [ :index, :new, :create ]
-
   def index
     t = Time.now
     start_date = t.at_beginning_of_month
