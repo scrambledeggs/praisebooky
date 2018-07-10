@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'votes/index'
   get 'votes/form'
   get 'profiles/index'
+  get 'profiles/me'
   get 'recent_activities/index'
   get 'scoreboards/index'
   get 'scoreboards/tech'
