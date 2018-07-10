@@ -69,3 +69,4 @@ gem 'bootstrap', '~> 4.1.1'
 # Adds omniauth for log-in authentication
 gem 'omniauth', '~> 1.6.1'
 gem 'omniauth-auth0', '~> 2.0.0'
+gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
