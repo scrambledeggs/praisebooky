@@ -8,7 +8,7 @@ class Vote < ApplicationRecord
   belongs_to :receiver, class_name: "User", foreign_key: "receiver_id"
 
   private
-  
+
   def voter_does_not_equal_receiver
     if self.voter == self.receiver
       @errors.add(:base, "You cannot vote yourself")
