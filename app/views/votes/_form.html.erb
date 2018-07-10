@@ -2,13 +2,12 @@
   <% if @current_user.manager %>
     <p>
       <%= f.label :point, "Points:", class: 'col-2' %>
-      <%= f.text_field :point, class: 'col-2' %><br />
+      <%= f.text_field :point, class: 'col-1' %>
     </p>
     <p>
-      <%= f.label :comment, "Comment:", class: 'col-2' %>
-      <%= f.text_field :comment, class: 'col-9' %><br />
-
       <%= f.hidden_field :receiver_id, value: receiver_id %>
+      <%= f.label :comment, "Comment:", class: 'col-2' %>
+      <%= f.text_field :comment, class: 'col-9' %>
     </p>
     <p>
       <center><%= f.submit "Submit", class: 'btn btn-primary btn-block col-2' %></center>
@@ -18,20 +17,19 @@
   <% else %>
     <p>
       <%= f.radio_button :point, 1 %>
-      <%= f.label :point, "Praise", class: 'col-1 row-3'%>
+      <%= f.label :point, "Praise", class: 'col-1'%>
 
       <%= f.radio_button :point, -1 %>
-      <%= f.label :point, "Criticize", class: 'col-1'%><br />
+      <%= f.label :point, "Criticize", class: 'col-1'%>
     </p>
     <p>
-      <%= f.label :comment, "Comment", class: 'col-2' %>
-      <%= f.text_field :comment, class: 'col-9' %><br />
-
       <%= f.hidden_field :receiver_id, value: receiver_id %>
-
+      <%= f.label :comment, "Comment:", class: 'col-2' %>
+      <%= f.text_field :comment, class: 'col-9' %>
+    </p>
+    <p>
       <center><%= f.submit "Submit", class: 'btn btn-primary btn-block col-2' %></center>
       <center><%= link_to "Cancel", votes_path, class: "btn btn-link col-2" %></center>
     </p>
-
   <% end %>
 <% end %>
