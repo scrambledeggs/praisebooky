@@ -1,29 +1,27 @@
 <div class="container">
   <div class="container">
     <div class="jumbotron p-3 text-center">
-      <h1 class="display-4"><%= @current_user.first_name.upcase %></h1>
+      <h1 class="display-4"><%= @profile_user.first_name.upcase %></h1> 
         <hr>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Points: <%= @points %></center>
+            <center>TOTAL POINTS: <%= @points %></center>
           </div>
           <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Remaining Votes: <%= @remaining_votes_user %></center>
-          </div>
-          <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Praises Received: <%= @praise %></center>
-          </div>
-          <div style="font-size: 20px; font-weight: darker; color: green">
-            <center>Criticisms Received: <%= @criticism %></center>
+            <center>REMAINING VOTES: <%= @remaining_votes_user %></center>
           </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
         <div class="card">
-          <h4 class="card-header text-center bg-dark text-white">HISTORY</h4>
-
+          <h4 class="card-header text-center bg-dark text-white">RECEIVED VOTES</h4>
           <div class="card-body">
-            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+          <div style="font-size: 20px; font-weight: darker; color: green">
+            <center>Praises Received: <%= @praise %></center>
+          </div>
+          <div style="font-size: 20px; font-weight: darker; color: green">
+            <center>Criticisms Received: <%= @criticism %></center>
+          </div>
           </div>
         </div>
       </div>
@@ -38,7 +36,7 @@
                   <li class="list-group-item">
                     <div class="row">
                       <div class="mic-info" style="width: 100%;">
-                        <% @current_user.votes_received.each do |vote| %>
+                        <% @profile_user.votes_received.each do |vote| %>
                           <div style="font-size: 12px; font-weight: darker; color: green; float: right;">
                             <%= vote.created_at %>
                           </div>
@@ -64,7 +62,7 @@
 </div>
 
 <!-- Graphs -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script>
   var ctx = document.getElementById("myChart");
   var myChart = new Chart(ctx, {
@@ -93,4 +91,4 @@
       }
     }
   });
-</script>
+</script>-->
