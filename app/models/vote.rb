@@ -10,7 +10,7 @@ class Vote < ApplicationRecord
   private
   
   def voter_does_not_equal_receiver
-  	if self.voter == self.receiver
+    if self.voter == self.receiver
       @errors.add(:base, "You cannot vote yourself")
     end
   end
