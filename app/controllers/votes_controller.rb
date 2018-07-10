@@ -15,17 +15,18 @@ class VotesController < ApplicationController
   end
 
   def new
+    @current_user = User.find(1)
+    @receiver = User.find(params[:receiver])
+
+    redirect_to votes_index_path, alert: "You can only vote within your department" unless @receiver.department == @current_user.department
+
     t = Time.now
     start_date = t.at_beginning_of_month
     end_date = t.at_end_of_month
 
     @vote = Vote.new
 
-    @current_user = User.find(1)
-
     @remaining_votes_user = 25 - @current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + @current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
-
-    @receiver = User.find(params[:receiver])
   end
 
   def create
