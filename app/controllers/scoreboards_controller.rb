@@ -1,5 +1,8 @@
 class ScoreboardsController < ApplicationController
+  include Secured
+  
   def index
-    @users = User.all.order(first_name: :asc)
+    @users = User.order(first_name: :asc)
+    @current_user = current_user
   end
 end

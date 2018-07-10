@@ -38,7 +38,7 @@
                   <li class="list-group-item">
                     <div class="row">
                       <div class="mic-info" style="width: 100%;">
-                        <% @votes.each do |vote| %>
+                        <% @current_user.votes_received.each do |vote| %>
                           <div style="font-size: 12px; font-weight: darker; color: green; float: right;">
                             <%= vote.created_at %>
                           </div>

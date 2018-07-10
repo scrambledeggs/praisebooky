@@ -66,6 +66,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.1'
 
-# Adds Omniauth for log-in authentication
-gem "omniauth" 
-gem "omniauth-google-oauth2" 
+# Adds omniauth for log-in authentication
+gem 'omniauth', '~> 1.6.1'
+gem 'omniauth-auth0', '~> 2.0.0'
+gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]

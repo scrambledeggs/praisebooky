@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/auth/oauth2/callback', to: 'auth0#callback'
+  get '/auth/failure', to: 'auth0#failure'
+  get '/logout', to: 'logout#logout'
   get 'votes/index'
   get 'votes/form'
   get 'profiles/index'
@@ -9,8 +12,9 @@ Rails.application.routes.draw do
   get 'scoreboards/marketing'
   get 'scoreboards/operations'
   get 'publics/index'
-  get '/votes/:receiver' => 'votes#new'
-  root to: 'scoreboards#index' 
+  get 'votes/:receiver' => 'votes#new'
+  
+  root to: 'home#show' 
   
   resources :votes 
 
