@@ -3,6 +3,5 @@ class MonthlyReward < ApplicationRecord
   validates :description, presence: true
 
   belongs_to :department
-
   belongs_to :user
 end

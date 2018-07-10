@@ -14,4 +14,5 @@ RSpec.describe MonthlyReward, type: :model do
 
   it { should belong_to(:department) }
   it { should belong_to(:user) }
+
 end

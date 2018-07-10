@@ -6,19 +6,18 @@ class VotesController < ApplicationController
     start_date = t.at_beginning_of_month
     end_date = t.at_end_of_month
 
-    @current_user = User.find(1)
+    @current_user = current_user
 
     @votes = Vote.order(created_at: :desc)
-    @users = User.where(department: @current_user.department).order(first_name: :asc)
+    @users = User.where(department: current_user.department).order(first_name: :asc)
     
-    @remaining_votes_user = 25 - @current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + @current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
+    @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
   end
 
   def new
-    @current_user = User.find(1)
     @receiver = User.find(params[:receiver])
 
-    redirect_to votes_index_path, alert: "You can only vote within your department" unless @receiver.department == @current_user.department
+    redirect_to votes_index_path, alert: "You can only vote within your department" unless @receiver.department == current_user.department
 
     t = Time.now
     start_date = t.at_beginning_of_month
@@ -26,12 +25,10 @@ class VotesController < ApplicationController
 
     @vote = Vote.new
 
-    @remaining_votes_user = 25 - @current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + @current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
+    @remaining_votes_user = 25 - current_user.votes_made.where(created_at: start_date..end_date).where("point > ?", 0).sum(:point) + current_user.votes_made.where(created_at: start_date..end_date).where("point < ?", 0).sum(:point)
   end
 
   def create
-    current_user = User.find(1)
-
     @vote = Vote.new(vote_params)
 
     @vote.voter = current_user
