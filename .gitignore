@@ -28,5 +28,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Ignore the environment variables
+# Ignore the environment variables 
 .env
