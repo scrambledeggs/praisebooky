@@ -5,7 +5,9 @@
       <a class="blog-header-logo text-dark display-4">PRAISEBOOKY</a>
     </div>
     <div class="col-2" align="left">
-      <a class="btn btn-sm btn-outline-secondary" href="#">Sign Out</a>
+      <% if session[:userinfo].present? %>
+        <a class="btn btn-sm btn-outline-secondary" href="/logout">Sign Out</a>
+      <% end %>
     </div>
   </div>
 </header>
@@ -17,4 +19,9 @@
     <a class="p-2 text-muted" href="/recent_activities/index"><span data-feather="users"></span> RECENT ACTIVITY</a>
     <a class="p-2 text-muted" href="/profiles/index"><span data-feather="bar-chart-2"></span> MY PROFILE</a>
   </nav>
+  <!-- Icons --> 
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script> 
+  <script> 
+    feather.replace() 
+  </script> 
 </div>
