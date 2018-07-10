@@ -1,20 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-department = Department.create!(name: 'Tech')
-
-User.create!(email: 'test1@gmail.com', first_name: 'test1', last_name: '1', department: department)
-
-User.create!(email: 'test2@gmail.com', first_name: 'test1', last_name: '2', department: Department.find(1))
-
-#Vote.create!(point: 1, receiver_id: 15, comment: 'Good comment', department: Department.find(14), user: User.find(14))
-
-Vote.create!(point: 1, comment: 'good', department: Department.find(2), user_id: 4, receiver_id: 5)
-
-puts "User successfully voted"
-
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+tech = Department.create!(name: 'Tech')
+market = Department.create!(name: 'Marketing')
+
+me = User.create!(email: 'clydeang421@gmail.com', first_name: 'Clyde', last_name: 'Ang', department: tech)
+
+tech1 = User.create!(email: 'tech1@gmail.com', first_name: 'tech1', last_name: 'dummy', department: tech)
+tech2 = User.create!(email: 'tech2@gmail.com', first_name: 'tech2', last_name: 'test', department: tech)
+
+market1 = User.create!(email: 'market1@gmail.com', first_name: 'market1', last_name: 'test', department: market)
+market2 = User.create!(email: 'market2@gmail.com', first_name: 'market2', last_name: 'dummy', department: market)
+
+Vote.create!(point: 1, voter: me, receiver: tech1, comment: 'good', department: tech, created_at: 1.month.ago)
+Vote.create!(point: 1, voter: me, receiver: tech1, comment: 'good', department: tech)
+Vote.create!(point: 1, voter: tech2, receiver: me, comment: 'good', department: tech)
+Vote.create!(point: 1, voter: market1, receiver: market2, comment: 'good', department: market)
