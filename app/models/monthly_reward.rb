@@ -4,6 +4,5 @@ class MonthlyReward < ApplicationRecord
 
   belongs_to :department
   
-  has_many :user
-  validates_associated :user
+  belongs_to :user
 end

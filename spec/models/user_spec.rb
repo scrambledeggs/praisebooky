@@ -10,6 +10,6 @@ RSpec.describe User, type: :model do
   it { should have_many(:votes_made) }
   it { should have_many(:votes_received) }
   it { should have_many(:messages) }
-  it { should have_many(:monthly_reward) }
+  it { should have_one(:monthly_reward) }
 
 end
