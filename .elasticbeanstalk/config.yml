@@ -1,4 +1,6 @@
 branch-defaults:
+  eb-config:
+    environment: praisebooky-live
   master:
     environment: null
     group_suffix: null
